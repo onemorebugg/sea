@@ -27,10 +27,10 @@ SEA.encrypt = SEA.encrypt || (async (data, pair, cb, opt) => {
     }
     if (!opt.raw) { r = 'SEA' + await shim.stringify(r) }
 
-    if (cb) { try { cb(r) } catch (e) { console.log(e) } }
+    if (cb) { try { cb(r) } catch (e) { /*console.log(e);*/ } }
     return r;
   } catch (e) {
-    /*/*console.log(e);*/
+    /* console.log(e);*/
     SEA.err = e;
     if (SEA.throw) { throw e }
     if (cb) { cb() }

@@ -113,7 +113,7 @@ User.prototype.auth = function (...args) { // TODO: this PR with arguments need 
   }
   act.w = function (auth) {
     if (opt.shuffle) { // delete in future!
-      /*console.log('migrate core account from UTF8 & shuffle');*/
+      /*/*console.log('migrate core account from UTF8 & shuffle');*/
       var tmp = {}; Object.keys(act.data).forEach(function (k) { tmp[k] = act.data[k] });
       delete tmp._;
       tmp.auth = auth;

@@ -10,7 +10,7 @@ SEA.verify = SEA.verify || (async (data, pair, cb, opt) => {
     var json = await S.parse(data);
     if (false === pair) { // don't verify!
       var raw = await S.parse(json.m);
-      if (cb) { try { cb(raw) } catch (e) { console.log(e) } }
+      if (cb) { try { cb(raw) } catch (e) { /*console.log(e);*/ } }
       return raw;
     }
     opt = opt || {};
@@ -30,10 +30,10 @@ SEA.verify = SEA.verify || (async (data, pair, cb, opt) => {
     }
     var r = check ? await S.parse(json.m) : u;
 
-    if (cb) { try { cb(r) } catch (e) { console.log(e) } }
+    if (cb) { try { cb(r) } catch (e) { /*console.log(e);*/ } }
     return r;
   } catch (e) {
-    /*/*console.log(e);*/ // mismatched owner FOR MARTTI
+    /* console.log(e); */ // mismatched owner FOR MARTTI
     SEA.err = e;
     if (SEA.throw) { throw e }
     if (cb) { cb() }
@@ -75,7 +75,7 @@ SEA.opt.fall_verify = async function (data, pair, cb, opt, f) {
   }
   var r = check ? await S.parse(json.m) : u;
   O.fall_soul = tmp['#']; O.fall_key = tmp['.']; O.fall_val = data; O.fall_state = tmp['>'];
-  if (cb) { try { cb(r) } catch (e) { console.log(e) } }
+  if (cb) { try { cb(r) } catch (e) { /*console.log(e);*/ } }
   return r;
 }
 SEA.opt.fallback = 2;

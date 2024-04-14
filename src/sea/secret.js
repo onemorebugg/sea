@@ -25,10 +25,10 @@ SEA.secret = SEA.secret || (async (key, pair, cb, opt) => {
       return ecdhSubtle.exportKey('jwk', derivedKey).then(({ k }) => k);
     })
     var r = derived;
-    if (cb) { try { cb(r) } catch (e) { console.log(e) } }
+    if (cb) { try { cb(r) } catch (e) { /*console.log(e);*/ } }
     return r;
   } catch (e) {
-    /*/*console.log(e);*/
+    /*console.log(e);*/
     SEA.err = e;
     if (SEA.throw) { throw e }
     if (cb) { cb() }

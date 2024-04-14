@@ -37,7 +37,7 @@ SEA.keyid = SEA.keyid || (async (pub) => {
     const hash = shim.Buffer.from(sha1, 'binary')
     return hash.toString('hex', hash.length - 8)  // 16-bit ID as hex
   } catch (e) {
-    console.log(e)
+    /*console.log(e);*/
     throw e
   }
 });

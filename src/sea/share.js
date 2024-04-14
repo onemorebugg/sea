@@ -14,7 +14,7 @@ User.prototype.pair = function () {
 }
 // If authenticated user wants to delete his/her account, let's support it!
 User.prototype.delete = async function (alias, pass, cb) {
-  /*/*console.log("user.delete() IS DEPRECATED AND WILL BE MOVED TO A MODULE!!!");*/
+  /*/*/* console.log("user.delete() IS DEPRECATED AND WILL BE MOVED TO A MODULE!!!");* /
   var gun = this, root = gun.back(-1), user = gun.back('user');
   try {
     user.auth(alias, pass, function (ack) {
@@ -31,7 +31,7 @@ User.prototype.delete = async function (alias, pass, cb) {
   return gun;
 }
 User.prototype.alive = async function () {
-  /*/*console.log("user.alive() IS DEPRECATED!!!");*/
+  /*/*/* console.log("user.alive() IS DEPRECATED!!!");* /
   const gunRoot = this.back(-1)
   try {
     // All is good. Should we do something more with actual recalled data?
@@ -44,12 +44,12 @@ User.prototype.alive = async function () {
   }
 }
 User.prototype.trust = async function (user) {
-  /*/*console.log("`.trust` API MAY BE DELETED OR CHANGED OR RENAMED, DO NOT USE!");*/
+  /*/*/* console.log("`.trust` API MAY BE DELETED OR CHANGED OR RENAMED, DO NOT USE!");* /
   // TODO: BUG!!! SEA `node` read listener needs to be async, which means core needs to be async too.
   //gun.get('alice').get('age').trust(bob);
   if (Gun.is(user)) {
     user.get('pub').get((ctx, ev) => {
-      console.log(ctx, ev)
+      /*console.log(ctx, ev);*/
     })
   }
   user.get('trust').get(path).put(theirPubkey);
@@ -61,7 +61,7 @@ User.prototype.trust = async function (user) {
   // and return the result of that to...
 }
 User.prototype.grant = function (to, cb) {
-  /*/*console.log("`.grant` API MAY BE DELETED OR CHANGED OR RENAMED, DO NOT USE!");*/
+  /*/*/* console.log("`.grant` API MAY BE DELETED OR CHANGED OR RENAMED, DO NOT USE!");* /
   var gun = this, user = gun.back(-1).user(), pair = user._.sea, path = '';
   gun.back(function (at) { if (at.is) { return } path += (at.get || '') });
   (async function () {
@@ -82,7 +82,7 @@ User.prototype.grant = function (to, cb) {
   return gun;
 }
 User.prototype.secret = function (data, cb) {
-  /*/*console.log("`.secret` API MAY BE DELETED OR CHANGED OR RENAMED, DO NOT USE!");*/
+  /*/*/* console.log("`.secret` API MAY BE DELETED OR CHANGED OR RENAMED, DO NOT USE!");* /
   var gun = this, user = gun.back(-1).user(), pair = user.pair(), path = '';
   gun.back(function (at) { if (at.is) { return } path += (at.get || '') });
   (async function () {

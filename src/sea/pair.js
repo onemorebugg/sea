@@ -5,10 +5,10 @@ var S = require('./settings');
 
 SEA.name = SEA.name || (async (cb, opt) => {
   try {
-    if (cb) { try { cb() } catch (e) { console.log(e) } }
+    if (cb) { try { cb() } catch (e) { /*console.log(e);*/ } }
     return;
   } catch (e) {
-    /*/*console.log(e);*/
+    /*console.log(e);*/
     SEA.err = e;
     if (SEA.throw) { throw e }
     if (cb) { cb() }
@@ -57,17 +57,17 @@ SEA.pair = SEA.pair || (async (cb, opt) => {
         })
     } catch (e) {
       if (SEA.window) { throw e }
-      if (e == 'Error: ECDH is not a supported algorithm') { console.log('Ignoring ECDH...') }
+      if (e == 'Error: ECDH is not a supported algorithm') { /*console.log('Ignoring ECDH...');*/ }
       else { throw e }
     } dh = dh || {};
 
     var r = {
       pub: sa.pub, priv: sa.priv, /* pubId, */ epub: dh.epub, epriv: dh.epriv
     }
-    if (cb) { try { cb(r) } catch (e) { console.log(e) } }
+    if (cb) { try { cb(r) } catch (e) { /*console.log(e);*/ } }
     return r;
   } catch (e) {
-    /*/*console.log(e);*/
+    /*console.log(e);*/
     SEA.err = e;
     if (SEA.throw) { throw e }
     if (cb) { cb() }

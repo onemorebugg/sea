@@ -16,7 +16,7 @@ SEA.work = SEA.work || (async (data, pair, cb, opt) => {
     data = (typeof data == 'string') ? data : await shim.stringify(data);
     if ('sha' === (opt.name || '').toLowerCase().slice(0, 3)) {
       var rsha = shim.Buffer.from(await sha(data, opt.name), 'binary').toString(opt.encode || 'base64')
-      if (cb) { try { cb(rsha) } catch (e) { console.log(e) } }
+      if (cb) { try { cb(rsha) } catch (e) { /*console.log(e);*/ } }
       return rsha;
     }
     salt = salt || shim.random(9);
@@ -29,10 +29,10 @@ SEA.work = SEA.work || (async (data, pair, cb, opt) => {
     }, key, opt.length || (S.pbkdf2.ks * 8))
     data = shim.random(data.length)  // Erase data in case of passphrase
     var r = shim.Buffer.from(work, 'binary').toString(opt.encode || 'base64')
-    if (cb) { try { cb(r) } catch (e) { console.log(e) } }
+    if (cb) { try { cb(r) } catch (e) { /*console.log(e);*/ } }
     return r;
   } catch (e) {
-    /*/*console.log(e);*/
+    /*console.log(e);*/
     SEA.err = e;
     if (SEA.throw) { throw e }
     if (cb) { cb() }
