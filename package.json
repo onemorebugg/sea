@@ -9,11 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "mocha": "^6.2.0",
-    "ip": "^1.1.5",
-    "aws-sdk": "^2.528.0",
-    "emailjs": "^2.2.0",
-    "uglify-js": "^3.6.0"
+  "dependencies": {
+    "@peculiar/webcrypto": "^1.4.6"
   }
 }
